@@ -8,4 +8,4 @@
 - RIGHT 向右
 - SPACE 重置
 
-![贪吃蛇游戏](./docs/snake.gif)
+![贪吃蛇游戏](docs/snake.gif)
