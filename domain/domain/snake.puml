@@ -1,0 +1,49 @@
+@startuml
+!include ../libs/full.puml
+
+DomainEvent("SnakeDiedEvent") [
+  死亡
+  --
+]
+
+DomainEvent("SnakeAteFoodEvent") [
+  吃了食物
+  --
+]
+
+DomainEvent("SnakeGrowsEvent") [
+  身体变长
+  --
+]
+
+DomainEvent("SnakeMovedEvent") [
+  移动
+  --
+]
+
+
+Command("MoveCommand") [
+    移动蛇
+    -- 参数 --
+    dir: 移动的方向
+]
+
+
+Aggregate("Snake")[
+  贪吃蛇聚合
+  --
+  dir: 当前移动的方向
+]
+
+
+MoveCommand -down-> Snake
+Snake -down-> SnakeMovedEvent
+Snake -down-> SnakeAteFoodEvent
+Snake -down-> SnakeGrowsEvent
+Snake -down-> SnakeDiedEvent
+
+
+
+
+
+@enduml
